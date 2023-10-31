@@ -10,7 +10,7 @@ binary_tree_t *binary_tree_insert_left(binary_tree_t *parent, int value)
 {
 	/* If parent node is empty */
 	if (parent == NULL)
-		return NULL;
+		return (NULL);
 
 	binary_tree_t *node = malloc(sizeof(binary_tree_t));
 	binary_tree_t *tmp = malloc(sizeof(binary_tree_t));
