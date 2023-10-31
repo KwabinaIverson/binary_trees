@@ -1,7 +1,7 @@
 #include "binary_trees.h"
 
 /**
- *  InorderTraversal - use inorder traversal to delete binary tree
+ *  inorderTraversal - use inorder traversal to delete binary tree
  *  @root: root node of tree
  *  Return: nothing
  */
@@ -22,5 +22,5 @@ void inorderTraversal(binary_tree_t *root)
  */
 void binary_tree_delete(binary_tree_t *tree)
 {
-        inorderTraversal(tree);
+	inorderTraversal(tree);
 }
