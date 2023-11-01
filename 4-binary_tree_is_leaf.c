@@ -13,7 +13,6 @@ int binary_tree_is_leaf(const binary_tree_t *node)
 	if (node == NULL)
 		return (0);
 
-	tmp = binary_tree_node(NULL, 98);
 	tmp = node;
 
 	/* Traverse BT looking for node */
