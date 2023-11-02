@@ -72,6 +72,10 @@ int binary_tree_is_perfect(const binary_tree_t *tree)
 	if (tree == NULL)
 		return (0);
 
+	/* If root is a leaf */
+	if (tree->left == NULL && tree->right == NULL)
+		return (0);
+
 	i = binary_tree_nodes(tree);
 	if (i > 0)
 		return (0);
