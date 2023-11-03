@@ -61,6 +61,32 @@ size_t binary_tree_nodes(const binary_tree_t *tree)
 }
 
 /**
+ * b_tree_leaves - counts the leaves in a binary tree
+ * @tree: pointer to the root node of the tree
+ * Return: 1 if leaf is on last level, or 0 otherwise
+ */
+size_t b_tree_leaves(const binary_tree_t *tree, size_t tree_height)
+{
+	size_t leaves_count = 0;
+
+	if (tree == NULL)
+		return (0);
+
+	if (tree->left == NULL && tree->right == NULL)
+	{
+		if (tree_height - binary_tree_height(tree) == tree_height)
+			leaves_count = 0;
+		else
+			return (1);
+	}
+
+	leaves_count = b_tree_leaves(tree->left, tree_height);
+	leaves_count = b_tree_leaves(tree->right, tree_height);
+
+	return (leaves_count);
+}
+
+/**
  * binary_tree_is_perfect - checks if a binary tree is perfect
  * @tree: pointer to root node of tree
  * Return: 1 if tree is perfect, 0 otherwise
@@ -78,7 +104,9 @@ int binary_tree_is_perfect(const binary_tree_t *tree)
 
 	/*Check if balance factor (BF) of tree is == 0 */
 	/* If FALSE, tree is not perfect*/
-	if (binary_tree_balance(tree) == 0)
+	/* binary_tree_height makes sure leaf node is on the last level */
+	if ((binary_tree_balance(tree) == 0) &&
+		(b_tree_leaves(tree, binary_tree_height(tree)) == 0))
 		return (1);
 	else
 		return (0);
